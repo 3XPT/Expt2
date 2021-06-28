@@ -1,0 +1,27 @@
+
+_G.autoTap = true;
+_G.autoEggOpened = true;
+
+
+spawn(function()
+while _G.autoTap == true do
+workspace.Events.AddClick:FireServer()
+
+   wait()
+end
+end)
+
+spawn(function()
+    while _G.autoEggOpened == true do
+        local args = {
+            [1] = "DesertEgg",
+            [2] = "Single"
+        }
+        game:GetService("ReplicatedStorage").RemoteEvents.EggOpened:InvokeServer(unpack(args))
+        
+        
+           wait()
+        end
+end)
+
+print('Assalamualaikum')
